@@ -1,4 +1,4 @@
-#include<iostream>
+﻿#include<iostream>
 #include<array>
 #include<vector>
 //using namespace std;
@@ -37,8 +37,8 @@ void main()
 	{
 		for (int i = 0; i < vec.capacity(); i++)
 		{
-			//cout << vec.data()[i] << tab;//����� data() ���������� ��������� �� ������������ ������, 
-			//������� ������������ vector
+			//cout << vec.data()[i] << tab;//Метод data() возвращает указатель на динамический массив, 
+			//который обворачивает vector
 			
 			//cout << vec[i] << tab;
 			cout << vec.at(i) << tab;
@@ -57,6 +57,20 @@ void main()
 	cout << "Size: " << vec2.size() << endl;
 	cout << "Capacity: " << vec2.capacity() << endl;
 	cout << "MaxSize: " << vec2.max_size() << endl;*/
+
+		int index;
+		int value;
+		cout << "Введите индекс добовляемого элемента:"; cin >> index;
+		cout << "Введите значение добовляемого элемента:"; cin >> value;
+
+		vec.insert(vec.begin() + index, value);
+
+		for (std::vector<int> ::iterator it = vec.begin(); it != vec.end(); ++it)
+		{
+			cout << *it << tab;
+		}
+		cout << endl;
+
 #endif // STL_VECTOR
 
 }
