@@ -13,10 +13,10 @@ using std::endl;
 #define tab "\t"
 
 //#define STL_ARRAY
-#define STL_VECTOR
+//#define STL_VECTOR
 //#define STL_DEQUE
 //#define STL_FORWARD_LIST
-//#define STL_LIST
+#define STL_LIST
 
 void main()
 {
@@ -142,17 +142,25 @@ void main()
 	}
 	cout << endl;
 
-	std::forward_list<int>list2 = { 256,512,768 };
+	std::forward_list<int>list2 = { 256,256,512,768,512};
 	for (int i : list2)cout << i << tab; cout << endl;
 
 	list1.swap(list2);
 	for (int i : list1)cout << i << tab; cout << endl;
 	for (int i : list2)cout << i << tab; cout << endl;
 
+	list1.unique();
+	for (int i : list1)cout << i << tab; cout << endl;
+	list2.unique();
+	for (int i : list2)cout << i << tab; cout << endl;
+
+	list1.reverse();
+	for (int i : list1)cout << i << tab; cout << endl;
+
 #endif // STL_FORWARD_LIST
 
 #ifdef STL_LIST
-	std::list<int> list = { 3,5,8,13,21 };
+	std::list<int> list = { 3,3,5,5,8,13,21 };
 	for (std::list<int>::iterator it = list.begin(); it != list.end(); ++it)
 	{
 		cout << *it << tab;
@@ -179,6 +187,16 @@ void main()
 	else cout << "Error: out of range.\n";
 
 	for (int i : list)cout << i << tab; cout << endl;
+
+	list.unique();
+	for (int i : list)cout << i << tab; cout << endl;
+
+	list.reverse();
+	for (std::list<int>::iterator it = list.begin(); it != list.end(); ++it)
+	{
+		cout << *it << tab;
+	}
+	cout<< endl;
 
 #endif // STL_LIST
 
