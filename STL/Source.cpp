@@ -149,14 +149,6 @@ void main()
 	for (int i : list1)cout << i << tab; cout << endl;
 	for (int i : list2)cout << i << tab; cout << endl;
 
-	list1.unique();
-	for (int i : list1)cout << i << tab; cout << endl;
-	list2.unique();
-	for (int i : list2)cout << i << tab; cout << endl;
-
-	list1.reverse();
-	for (int i : list1)cout << i << tab; cout << endl;
-
 #endif // STL_FORWARD_LIST
 
 #ifdef STL_LIST
@@ -187,16 +179,6 @@ void main()
 	else cout << "Error: out of range.\n";
 
 	for (int i : list)cout << i << tab; cout << endl;
-
-	list.unique();
-	for (int i : list)cout << i << tab; cout << endl;
-
-	list.reverse();
-	for (std::list<int>::iterator it = list.begin(); it != list.end(); ++it)
-	{
-		cout << *it << tab;
-	}
-	cout<< endl;
 
 #endif // STL_LIST
 
