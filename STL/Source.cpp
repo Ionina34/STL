@@ -16,7 +16,7 @@ using std::endl;
 //#define STL_VECTOR
 //#define STL_DEQUE
 //#define STL_FORWARD_LIST
-#define STL_LIST
+//#define STL_LIST
 
 void main()
 {
