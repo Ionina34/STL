@@ -29,7 +29,7 @@ public:
 	}
 	std::ofstream& print(std::ofstream& os)const
 	{
-		os << crime_id  << place ;
+		os << crime_id << place;
 		return os;
 	}
 
@@ -41,11 +41,18 @@ public:
 		std::cout << "Введите место совершения:";
 		std::getline(is, place);
 		return is;
-}
+	}
+	std::ifstream& scan(std::ifstream& is)
+	{
+		is >> crime_id;
+		std::getline(is, place, ',');
+		return is;
+	}
 };
 std::ostream& operator<<(std::ostream& os, const Crime& obj);
 std::ofstream& operator<<(std::ofstream& os, const Crime& obj);
 std::istream& operator>>(std::istream& is, Crime& obj);
+std::ifstream& operator>>(std::ifstream& is, Crime& obj);
 std::istream& getline(std::istream& is, Crime& obj);
 
 

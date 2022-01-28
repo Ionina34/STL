@@ -89,11 +89,15 @@ void load(std::map<std::string, std::list<Crime>>& base)
 		while (!fin.eof())
 		{
 			std::getline(fin, licence_plate, ':');
+			Crime crime;
+			fin >> crime;
+#ifdef DEBUG
+			std::getline(fin, licence_plate, ':');
 			std::getline(fin, all_crimes);
 			if (licence_plate.empty())break;
 			/*all_crimes.erase(0, all_crimes.find_first_not_of(' '));
 			all_crimes.erase(all_crimes.find(';'),all_crimes.size());
-			//npos - конец строки 
+			//npos - конец строки
 			if (all_crimes.find(',') == std::string::npos)
 			{
 				int crime_id = std::stoi(all_crimes);
@@ -119,6 +123,7 @@ void load(std::map<std::string, std::list<Crime>>& base)
 				while (*pch == ' ')pch++;
 				base[licence_plate].push_back(Crime(atoi(pch), pch + 1));
 			}
+#endif // DEBUG
 		}
 		fin.close();
 	}

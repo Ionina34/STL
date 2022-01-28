@@ -25,6 +25,10 @@ std::istream& operator>>(std::istream& is, Crime& obj)
 {
 	return obj.scan(is);
 }
+std::ifstream& operator>>(std::ifstream& is, Crime& obj)
+{
+	return obj.scan(is);
+}
 
 std::istream& getline(std::istream& is, Crime& obj)
 {
