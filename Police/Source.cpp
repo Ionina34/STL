@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include<iostream>
 #include<fstream>
 #include<Windows.h>
@@ -89,7 +91,7 @@ void load(std::map<std::string, std::list<Crime>>& base)
 			std::getline(fin, licence_plate, ':');
 			std::getline(fin, all_crimes);
 			if (licence_plate.empty())break;
-			all_crimes.erase(0,all_crimes.find_first_not_of(' '));
+			/*all_crimes.erase(0, all_crimes.find_first_not_of(' '));
 			all_crimes.erase(all_crimes.find(';'),all_crimes.size());
 			//npos - конец строки 
 			if (all_crimes.find(',') == std::string::npos)
@@ -108,6 +110,14 @@ void load(std::map<std::string, std::list<Crime>>& base)
 				int crima_id = std::stoi(crime);
 				std::string place = crime.erase(0, 1);
 				base[licence_plate].push_back(Crime(crima_id,place));
+			}*/
+			char* sz_all_crimes = new char[all_crimes.size()]{};
+			strcpy(sz_all_crimes, all_crimes.c_str());
+			char delimeter[] = ",;";
+			for (char* pch = strtok(sz_all_crimes, delimeter); pch; pch = strtok(NULL, delimeter))
+			{
+				while (*pch == ' ')pch++;
+				base[licence_plate].push_back(Crime(atoi(pch), pch + 1));
 			}
 		}
 		fin.close();
