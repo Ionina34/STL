@@ -94,7 +94,7 @@ void main()
 	else std::cerr << "Error: out of range." << endl;
 	for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); ++it)
 	{
-		cout << *it <<tab;
+		cout << *it << tab;
 	}
 	cout << endl;
 	for (std::vector<int>::reverse_iterator it = vec.rbegin(); it != vec.rend(); ++it)
@@ -142,7 +142,7 @@ void main()
 	}
 	cout << endl;
 
-	std::forward_list<int>list2 = { 256,256,512,768,512};
+	std::forward_list<int>list2 = { 256,256,512,768,512 };
 	for (int i : list2)cout << i << tab; cout << endl;
 
 	list1.swap(list2);
@@ -181,6 +181,4 @@ void main()
 	for (int i : list)cout << i << tab; cout << endl;
 
 #endif // STL_LIST
-
-
 }
